@@ -13,7 +13,7 @@ The system addresses sensory deprivation (10-second vision blackouts) using a hy
 - **Robots:** TurtleBot3 Burger (Leader), Waffle Pi (Follower)
 - **Environment:** Gazebo Classic
 - **Middleware:** ROS 2 Humble
-- **Vision:** OpenCV with ArUco Fiducial Markers
+- **Vision:** OpenCV with Fiducial Markers
 
 ## How to Run
 1. Source your ROS 2 workspace.
