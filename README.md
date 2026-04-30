@@ -64,11 +64,11 @@ leader-follower-formation-control/
 3. Run the 3 different trajectories (Terminal 3)
 
    a) Straight Path:
-   ros2 topic pub /leader/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.25, y: 0.0, z: 0.0}, angular: {z: 0.0}}"
+      ros2 topic pub /leader/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.25, y: 0.0, z: 0.0}, angular: {z: 0.0}}"
 
    b) Curved Path:
-   ros2 topic pub /leader/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2, y: 0.0, z: 0.0}, angular: {z: 0.1}}"
+      ros2 topic pub /leader/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2, y: 0.0, z: 0.0}, angular: {z: 0.1}}"
 
    b) S-shaped Path:
-   cd ~/robot_ws/src/controller/controller/scripts
-   python3 leader_controller.py s
+      cd ~/robot_ws/src/controller/controller/scripts
+      python3 leader_controller.py s
