@@ -58,7 +58,7 @@ leader-follower-formation-control/
    ros2 launch controller simulation.launch.py
 
 2. Start the Formation Controller (Terminal 2)
-   cd ~/robot_ws/src/controller/controller
+   cd ~/robot_ws/src/controller/controller/scripts
    python3 follower_predict_controller.py
 
 3. Run the 3 different trajectories (Terminal 3)
@@ -67,5 +67,5 @@ leader-follower-formation-control/
    b) Curved Path:
    ros2 topic pub /leader/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2, y: 0.0, z: 0.0}, angular: {z: 0.1}}"
    b) S-shaped Path:
-   cd ~/robot_ws/src/controller/controller
+   cd ~/robot_ws/src/controller/controller/scripts
    python3 leader_controller.py s
