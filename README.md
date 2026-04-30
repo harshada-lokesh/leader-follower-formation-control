@@ -23,7 +23,8 @@ leader-follower-formation-control/
 ├── src/
 │   ├── controller/          # ROS 2 Package (Control & Prediction Logic)
 │   │   ├── controller/      # Lyapunov and Kinematic nodes
-│   │   ├── launch/          # Simulation launch files
+│   │   │   ├── scripts/ 
+│   │   │   ├── launch/          # Simulation launch files
 │   │   ├── package.xml
 │   │   └── setup.py
 │   └── models/              # Custom Gazebo Assets
