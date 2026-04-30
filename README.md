@@ -1,4 +1,4 @@
-# Lyapunov-Based Formation Control with Kinematic Prediction
+# Leader-Follower Tracking for a Nonholonomic Robot under Intermittent Vision Feedback
 
 This repository implements a robust leader-follower formation for mobile robots using **ROS 2 Humble** and **Gazebo Classic**. The system is designed to maintain formation stability even during 10-second vision blackouts using a hybrid control strategy.
 
@@ -7,7 +7,7 @@ The project solves the problem of leader-tracking for nonholonomic unicycle robo
 
 ### Key Features:
 *   **Nonlinear Control:** Lyapunov-based controller utilizing LaSalle’s Invariance Theorem to guarantee asymptotic stability.
-*   **Fiducial Vision:** Real-time pose estimation using **OpenCV** and **ArUco markers**.
+*   **Fiducial Vision:** Real-time pose estimation using **OpenCV** and **Fiducial markers**.
 *   **Trajectory Prediction:** Kinematic dead-reckoning applied during 10-second occlusion windows.
 *   **Simulation:** Custom Gazebo environment with integrated hardware-in-the-loop logic.
 
@@ -34,17 +34,13 @@ leader-follower-formation-control/
 
 ### ⚙️Setup Instructions
 1. Create a Workspace
-   ```bash
    mkdir -p ~/robot_ws/src
    cd ~/robot_ws/src
 
 2. Clone the Repository
-   ```bash
-   git clone <your-github-link>
-
+   git clone https://github.com/harshada-lokesh/leader-follower-formation-control.git
 
 3. Configure Custom Models
-   ```bash
    # Create the local model directory
    mkdir -p ~/turtlebot3_ws/src/
 
@@ -52,17 +48,24 @@ leader-follower-formation-control/
    cp -r ~/robot_ws/src/leader-follower-formation-control/src/models/* ~/turtlebot3_ws/src/
 
 4. Build the Package
-   ```bash
    cd ~/robot_ws
    colcon build --packages-select controller
    source install/setup.bash
 
+
 ### 🏁 How to Run
 1. Launch the Simulation (Terminal 1)
-   ```bash
    ros2 launch controller simulation.launch.py
 
 2. Start the Formation Controller (Terminal 2)
-   ```bash
    cd ~/robot_ws/src/controller/controller
    python3 follower_predict_controller.py
+
+3. Run the 3 different trajectories (Terminal 3)
+   a) Straight Path:
+   ros2 topic pub /leader/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.25, y: 0.0, z: 0.0}, angular: {z: 0.0}}"
+   b) Curved Path:
+   ros2 topic pub /leader/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2, y: 0.0, z: 0.0}, angular: {z: 0.1}}"
+   b) S-shaped Path:
+   cd ~/robot_ws/src/controller/controller
+   python3 leader_controller.py s
