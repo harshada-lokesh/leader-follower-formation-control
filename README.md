@@ -27,7 +27,7 @@ leader-follower-formation-control/
 │   │   ├── package.xml
 │   │   └── setup.py
 │   └── models/              # Custom Gazebo Assets
-│       ├── turtlebot3_burger/ # Modified SDF with ArUco Marker
+│       ├── turtlebot3_burger/ # Modified SDF with Marker
 │       └── marker0/         # ArUco Marker textures and SDF
 └── README.md
 
